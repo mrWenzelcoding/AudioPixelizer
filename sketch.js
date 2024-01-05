@@ -18,7 +18,6 @@ function setup() {
   rOff=20
   gOff=4
   bOff=78
-  song.play()
   fft = new p5.FFT()
   fft.setInput(song)
 }
@@ -64,6 +63,11 @@ function mousePressed() {
   if (mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight) {
     let fs = fullscreen();
     fullscreen(!fs);
+  }
+  if(song.isPlaying()){
+    song.pause();
+} else{
+    song.play()
   }
 }
 
